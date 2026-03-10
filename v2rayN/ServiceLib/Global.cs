@@ -203,7 +203,8 @@ public class Global
         { EConfigType.Hysteria2, "hysteria2://" },
         { EConfigType.TUIC, "tuic://" },
         { EConfigType.WireGuard, "wireguard://" },
-        { EConfigType.Anytls, "anytls://" }
+        { EConfigType.Anytls, "anytls://" },
+        { EConfigType.Juicity, "juicity://" }
     };
 
     public static readonly Dictionary<EConfigType, string> ProtocolTypes = new()
@@ -217,7 +218,8 @@ public class Global
         { EConfigType.Hysteria2, "hysteria2" },
         { EConfigType.TUIC, "tuic" },
         { EConfigType.WireGuard, "wireguard" },
-        { EConfigType.Anytls, "anytls" }
+        { EConfigType.Anytls, "anytls" },
+        { EConfigType.Juicity, "juicity" }
     };
 
     public static readonly List<string> VmessSecurities =
@@ -345,6 +347,7 @@ public class Global
         EConfigType.WireGuard,
         EConfigType.SOCKS,
         EConfigType.HTTP,
+        EConfigType.Juicity,
     ];
 
     public static readonly HashSet<EConfigType> SingboxOnlyConfigType = SingboxSupportConfigType.Except(XraySupportConfigType).ToHashSet();

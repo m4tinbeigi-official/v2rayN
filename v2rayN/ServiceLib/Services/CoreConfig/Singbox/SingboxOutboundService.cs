@@ -277,6 +277,13 @@ public partial class CoreConfigSingboxService
                         outbound.password = _node.Password;
                         break;
                     }
+                case EConfigType.Juicity:
+                    {
+                        outbound.user = _node.Username;
+                        outbound.password = _node.Password;
+                        outbound.congestion_control = _node.HeaderType;
+                        break;
+                    }
             }
 
             FillOutboundTls(outbound);

@@ -93,6 +93,14 @@ public partial class AddServerWindow
                 lstStreamSecurity.Add(Global.StreamSecurityReality);
                 gridFinalmask.Visibility = Visibility.Collapsed;
                 break;
+            case EConfigType.Juicity:
+                gridJuicity.Visibility = Visibility.Visible;
+                cmbCoreType.IsEnabled = false;
+                cmbFingerprint.IsEnabled = false;
+                cmbFingerprint.Text = string.Empty;
+                gridFinalmask.Visibility = Visibility.Collapsed;
+                cmbHeaderType11.ItemsSource = Global.TuicCongestionControls;
+                break;
         }
         cmbStreamSecurity.ItemsSource = lstStreamSecurity;
 
@@ -164,6 +172,11 @@ public partial class AddServerWindow
 
                 case EConfigType.Anytls:
                     this.Bind(ViewModel, vm => vm.SelectedSource.Password, v => v.txtId10.Text).DisposeWith(disposables);
+                    break;
+                case EConfigType.Juicity:
+                    this.Bind(ViewModel, vm => vm.SelectedSource.Username, v => v.txtId11.Text).DisposeWith(disposables);
+                    this.Bind(ViewModel, vm => vm.SelectedSource.Password, v => v.txtSecurity11.Text).DisposeWith(disposables);
+                    this.Bind(ViewModel, vm => vm.SelectedSource.HeaderType, v => v.cmbHeaderType11.Text).DisposeWith(disposables);
                     break;
             }
             this.Bind(ViewModel, vm => vm.SelectedSource.Network, v => v.cmbNetwork.Text).DisposeWith(disposables);

@@ -18,6 +18,7 @@ public partial class CoreConfigSingboxService
                     type = EInboundProtocol.mixed.ToString(),
                     tag = EInboundProtocol.socks.ToString(),
                     listen = Global.Loopback,
+                    udp_node_mode = "full",
                 };
                 _coreConfig.inbounds.Add(inbound);
 
@@ -71,6 +72,8 @@ public partial class CoreConfigSingboxService
                 {
                     tunInbound.address = ["172.18.0.1/30"];
                 }
+                tunInbound.endpoint_independent_nat = true;
+                tunInbound.udp_node_mode = "full";
 
                 _coreConfig.inbounds.Add(tunInbound);
             }
